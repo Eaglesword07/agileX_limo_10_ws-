@@ -1,0 +1,2 @@
+limo_base:limo_navigation:limo_slam:ydlidar_ros
+-DCATKIN_DEVEL_PREFIX=/home/agilex/limonew_ws/devel -DCMAKE_INSTALL_PREFIX=/home/agilex/limonew_ws/install -G Unix Makefiles

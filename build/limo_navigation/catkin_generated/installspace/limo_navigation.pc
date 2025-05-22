@@ -1,0 +1,8 @@
+prefix=/home/agilex/limonew_ws/install
+
+Name: limo_navigation
+Description: Description of limo_navigation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

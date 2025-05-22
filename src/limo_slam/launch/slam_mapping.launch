@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find limo_base)/launch/limo_base.launch"/>
+    <include file="$(find ydlidar_ros)/launch/lidar.launch" /> 
+    <include file="$(find limo_slam)/launch/gmapping_slam.launch"/> 
+    <include file="$(find limo_slam)/launch/camera.launch"/> 
+</launch>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+
+ <!-- Ensure robot_pose_ekf is running to provide odometry -->
+ <node pkg="robot_pose_ekf" name="robot_pose_ekf" type="robot_pose_ekf">
+     <param name="output_frame" value="odom"/>
+     <param name="base_footprint_frame" value="base_link"/>
+ </node>
+
+ <!-- Start KartoSLAM -->
+ <node name="slam_karto" pkg="slam_karto" type="slam_karto" output="screen">
+     <param name="odom_frame_id" value="odom"/>
+     <param name="map_frame_id" value="map"/>
+     <param name="base_frame_id" value="base_link"/>
+     <param name="scan_topic" value="/scan"/>
+     <param name="throttle_scans" value="1"/> 
+     <param name="use_scan_matching" value="true"/>
+     <param name="use_scan_barycenter" value="false"/>
+     <param name="minimum_travel_distance" value="0.2"/>
+     <param name="minimum_travel_heading" value="0.05"/>
+     <param name="scan_buffer_size" value="10"/>
+     <param name="scan_buffer_maximum_scan_distance" value="10.0"/>
+     <param name="link_match_minimum_response_fine" value="0.5"/>
+     <param name="link_scan_maximum_distance" value="15.0"/>
+     <param name="do_loop_closing" value="true"/>
+     <param name="loop_search_maximum_distance" value="10.0"/>
+     <param name="do_loop_closing" value="true"/>
+ </node>
+
+ <!-- Static transform between map and odom -->
+ <node pkg="tf" type="static_transform_publisher" name="map_to_odom"
+       args="0 0 0 0 0 0 map odom 10"/>
+
+ <!-- Predefined RViz configuration -->
+ <node pkg="rviz" type="rviz" name="rviz" args="-d $(find limo_slam)/rviz/karto_slam.rviz"/>
+
+</launch>
+

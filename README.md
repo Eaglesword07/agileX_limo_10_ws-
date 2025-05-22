@@ -1,2 +1,1 @@
-# agileX_limo_10_ws-
-Workspace for making AgileX Limo Robot run autonomously
+# When you clone the repo. if it doesnt work. delete build and dev folders and rebuild the workspace.
